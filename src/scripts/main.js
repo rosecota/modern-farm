@@ -9,6 +9,8 @@ import { createSunflower } from "./seeds/sunflower.js";
 import { createWheat } from "./seeds/wheat.js";
 // Field
 import { addPlant, usePlants } from "./field.js";
+// Harvester
+import { harvestPlants } from "./harvester.js";
 
 // Harvest plan
 const yearlyPlan = createPlan();
@@ -23,9 +25,15 @@ const wheatSeed = createWheat();
 
 // Tilling the field
 // Invoke addPlant() and specify the seed object as the argument.
+addPlant(asparagusSeed);
 addPlant(cornSeed);
+addPlant(potatoSeed);
+addPlant(soybeanSeed);
 addPlant(sunflowerSeed);
+addPlant(wheatSeed);
+
 // Invoke usePlants() and store its return value in a variable.
-const getPlantsInField = usePlants();
-// Use console.log() to make sure your seed object got added to the array of plants in the field.
-console.log(getPlantsInField);
+const plantsGrowingInField = usePlants();
+
+// Use console.log() to see your new array of harvested food to sell.
+console.log(harvestPlants(plantsGrowingInField));
