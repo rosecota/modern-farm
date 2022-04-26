@@ -5,6 +5,8 @@ import { usePlants } from "./field.js";
 // Harvester
 import { harvestPlants } from "./harvester.js";
 import { plantSeeds } from "./tractor.js";
+// Catalog
+import { Catalog } from "./catalog.js";
 
 // Harvest plan
 const yearlyPlan = createPlan();
@@ -15,5 +17,8 @@ plantSeeds(yearlyPlan);
 // Invoke usePlants() and store its return value in a variable.
 const plantsGrowingInField = usePlants();
 
-// Use console.log() to see your new array of harvested food to sell.
-console.log(harvestPlants(plantsGrowingInField));
+// New array of harvested food to sell.
+let harvestedFood = harvestPlants(plantsGrowingInField);
+
+const parentHTMLElement = document.querySelector("main");
+parentHTMLElement.innerHTML = Catalog(harvestedFood);
